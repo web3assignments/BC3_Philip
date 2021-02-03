@@ -1,0 +1,111 @@
+/* Styles go here */
+
+body{
+	background-color: #f1f1f1;
+}
+
+.nav-width{
+	max-width: 1130px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.app-logo{
+	width: 100%;
+}
+
+.text-DHgreen{
+	color: #227b3c;
+}
+
+.btn-mint{
+	background: #227b3c;
+	border-color: #227b3c;
+	color: white;
+}
+
+.btn-mint:hover{
+	background: #9a6f1e;
+	border-color: #9f6c04;
+	color: white;
+}
+
+.tokenValue{
+	background: #70ad48;
+	width: 200px;
+	display: inline-block;
+	border-radius: 20px;
+	color: white;
+}
+
+.tokenImage{
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	border: 1px solid lightgrey;
+	border-radius: 50%;
+}
+
+.token100{
+	background-image: url("../img/100.png");
+}
+
+
+.token200{
+	background-image: url("../img/200.png");
+}
+
+.token300{
+	background-image: url("../img/300.png");
+}
+
+.token400{
+	background-image: url("../img/400.png");
+}
+
+.token500{
+	background-image: url("../img/500.png");
+}
+
+.token600{
+	background-image: url("../img/600.png");
+}
+
+.token1500{
+	background-image: url("../img/1500.png");
+}
+
+.token2000{
+	background-image: url("../img/2000.png");
+}
+
+.token2500{
+	background-image: url("../img/2500.png");
+}
+
+.token10000{
+	background-image: url("../img/10000.png");
+}
+
+.token15000{
+	background-image: url("../img/15000.png");
+}
+
+.token20000{
+	background-image: url("../img/20000.png");
+}
+
+.token70000{
+	background-image: url("../img/70000.png");
+}
+
+.token105000{
+	background-image: url("../img/105000.png");
+}
+
+.token140000{
+	background-image: url("../img/140000.png");
+}
