@@ -28,12 +28,17 @@ contract UserContract{
   
   // to update the name of the user
   function update(uint _id, string memory _name) public{
-    users[_id].name = _name;    
+      // requires unique name in order to execute the following code
+    require(!_userExists[_name]);
+    _userExists[users[_id].name] = false;
+    users[_id].name = _name;
+    _userExists[_name] = true;
   }
   
   // to remove the user
-  function remove(uint id) public{
-   delete users[id];
+  function remove(uint _id) public{
+   _userExists[users[_id].name] = false;
+   delete users[_id];
   }
       
 }
