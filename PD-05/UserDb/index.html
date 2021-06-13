@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> User Database</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+        <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="./index.html">User Database</a>
+            <ul class="navbar-nav px-3">
+              <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+                <small><a class="nav-link" href="#"><span id="account"></span></a></small>
+              </li>
+            </ul>
+        </nav>
+        
+		<h1>sendTransaction</h1>
+        <pre id="log" style="width:100%;height:200px"></pre>
+        
+        <div class="row mb-3">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Create user</h1>
+                <label for="userName">Name: </label>
+                <input  type="text" id="registerName" />
+                <button id="submit" onclick="createUser()">Create</button>
+            </div>	
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row mb-3" id="non-existant">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Return user by id</h3>
+                <label for="userName">Id: </label>
+                <input  type="text" id="returnId" />
+                <button id="submit" onclick="readUser()">Return</button>
+                <p id="readUserName"></p>	
+            </div>	
+            <div class="col-md-3"></div>
+        </div>
+	</body>
+<html>
