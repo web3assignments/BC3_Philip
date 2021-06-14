@@ -1,4 +1,5 @@
-pragma solidity ^0.5.6;
+// SPDX-License-Identifier:	AFL-3.0
+pragma solidity 0.8.5;
 
 contract UserContract{
   
@@ -11,23 +12,25 @@ contract UserContract{
   mapping(string => bool) _userExists;
   
   // to create a new user
-  function create(string memory _name) public{
+  function createUser(string memory _name) public{
     // requires unique name in order to execute the following code
     require(!_userExists[_name]);
     // user will be added to the users array
-    uint id = users.push(User(_name)) - 1;
+    users.push(User(_name));
+    // user.push(); doesnot return int anymore
+    uint id = users.length - 1;
     emit NewUser(id, _name);
     // gives value true to name in the mapping
     _userExists[_name] = true;
   }
   
   // to read the information of the user by giving the id
-  function read(uint _id) view public returns(string memory){
+  function readUser(uint _id) view public returns(string memory){
     return users[_id].name;    
   }
   
   // to update the name of the user
-  function update(uint _id, string memory _name) public{
+  function updateUser(uint _id, string memory _name) public{
       // requires unique name in order to execute the following code
     require(!_userExists[_name]);
     _userExists[users[_id].name] = false;
@@ -36,7 +39,7 @@ contract UserContract{
   }
   
   // to remove the user
-  function remove(uint _id) public{
+  function removeUser(uint _id) public{
    _userExists[users[_id].name] = false;
    delete users[_id];
   }
