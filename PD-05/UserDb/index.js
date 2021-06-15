@@ -112,6 +112,7 @@ function log(logstr) {
 }
 
 var contract;
+var acts;
 
 async function asyncloaded() {            
     web3 = new Web3(Web3.givenProvider); //provider from metamask
@@ -119,7 +120,7 @@ async function asyncloaded() {
     log(`Version of web3.js: ${web3.version}`);  
     var result = await web3.eth.requestAccounts().catch(x=>{log(x.message); console.log(x);});
     log(`Value from requestAccounts: ${JSON.stringify(result)}`);
-    var acts = await web3.eth.getAccounts().catch(log);
+    acts = await web3.eth.getAccounts().catch(log);
     log(`Here are the accounts: ${JSON.stringify(acts)}`);
 
     var fromadr = acts[0];
@@ -156,6 +157,8 @@ function createUser(){
     log(t);
     var userName = document.getElementById("registerName").value;
     log(userName);
+	log(userName.type);
+	log(userName.internalType);
     contract.methods.createUser(userName).send({from: acts[0]});
     log("gelukt");
 }
@@ -169,3 +172,4 @@ async function readUser(){
     var result = await contract.methods.readUser(userId).call({from: acts[0]}).then(x => {console.log(x); return x});
     document.getElementById("readUserName").innerText = result;
 }
+
