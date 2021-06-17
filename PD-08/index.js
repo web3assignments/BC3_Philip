@@ -237,6 +237,11 @@ async function readUser(){
     document.getElementById("readUserName").innerText = result;
 }
 
+async function requestTemp(){
+    var result = await contract.methods.requestTemp().call().then(x => {console.log(x); return x});   
+    document.getElementById('temperature').innerText = result;
+}
+
 async function getTemp(){
     var result = await contract.methods.getTemp().call().then(x => {console.log(x); return x});   
     document.getElementById('temperature').innerText = result;
