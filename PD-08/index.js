@@ -1,6 +1,6 @@
-// https://ropsten.etherscan.io/address/0x13272C3823B0D2463411801433767bB4C133338F
+// https://ropsten.etherscan.io/address/0xFf245ff8e943Af9C996A7CAb8Be74653180931AC
 
-const contract_address = '0x13272C3823B0D2463411801433767bB4C133338F';
+const contract_address = '0xFf245ff8e943Af9C996A7CAb8Be74653180931AC';
 
 // Compile your contract in remix, then go to the .JSON artifact and ABI will be there.
 const Userabi = [
@@ -27,13 +27,6 @@ const Userabi = [
 		],
 		"name": "NewUser",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "GetTemp",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -91,6 +84,19 @@ const Userabi = [
 	},
 	{
 		"inputs": [],
+		"name": "getTemp",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "priceOfUrl",
 		"outputs": [
 			{
@@ -132,6 +138,13 @@ const Userabi = [
 		"name": "removeUser",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "requestTemp",
+		"outputs": [],
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -225,17 +238,7 @@ async function readUser(){
 }
 
 async function getTemp(){
-    var result = await contract.methods.GetTemp().call().then(x => {console.log(x); return x});   
+    var result = await contract.methods.getTemp().call().then(x => {console.log(x); return x});   
     document.getElementById('temperature').innerText = result;
 }
 
-async function getTemp2(){
-    var result = await contract.temp().call().then(x => {console.log(x); return x});   
-    document.getElementById('temperature2').innerText = result;
-}
-
-
-async function getTemp3(){
-    var result = await contract.methods.temp().call().then(x => {console.log(x); return x});   
-    document.getElementById('temperature2').innerText = result;
-}
