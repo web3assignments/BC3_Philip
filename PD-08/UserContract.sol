@@ -57,12 +57,16 @@ contract UserContract is usingProvable{
        temp = result;
    }
 
-   function GetTemp() public payable {
+   function requestTemp() public payable {
        priceOfUrl = provable_getPrice("URL");
        require (address(this).balance >= priceOfUrl,
             "please add some ETH to cover for the query fee");
        provable_query("URL", 
             "json(http://weerlive.nl/api/json-data-10min.php?key=demo&locatie=Amsterdam).liveweer[0].temp");
+   }
+
+   function getTemp() public view returns (string memory) {
+       return temp;
    }
       
 }
