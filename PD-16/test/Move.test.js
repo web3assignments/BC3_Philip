@@ -45,15 +45,21 @@ contract('Move', (accounts) => {
 		it('creates a new token', async() =>{
 	  		const result = await contract.mint('1000xc30Ec9b5bd2e7433C12C3c8FFc875b1eA80347C1')
 	  		const totalSupply = await contract.totalSupply()
-	  		// SUCCES
+	  		
 	  		assert.equal(totalSupply,1)
 	  		const event = result.logs[0].args
 	  		assert.equal(event.tokenId.toNumber(), 1, 'id is correct')
 	  		assert.equal(event.from, '0x0000000000000000000000000000000000000000', 'from is correct')
 	  		assert.equal(event.to, accounts[0], 'to is correct')
 
-	  		// FAILURE: cannot mint same move twice
-	  		await contract.mint('1000xc30Ec9b5bd2e7433C12C3c8FFc875b1eA80347C1').should.be.rejected;
 	  })
+
+	  	// tests if the token can be created twice
+	  	it('cannot create the same token twice', async() =>{
+			await contract.mint('1000xc30Ec9b5bd2e7433C12C3c8FFc875b1eA80347C1').should.be.rejected;
+			const totalSupply = await contract.totalSupply()
+
+			assert.equal(totalSupply,1)
+		  })
 	})
 })
